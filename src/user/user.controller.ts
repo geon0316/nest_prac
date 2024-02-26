@@ -12,7 +12,7 @@ export class UserController {
         res.sendFile(path.join(__dirname,'login.html'));
       }
 
-    // 아직 미구현
+    // 아직 미구현!
     @Post('/signup')
     get(){
         return arguments;
