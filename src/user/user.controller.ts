@@ -2,6 +2,7 @@ import { Controller, Get, Res, Post, Render } from '@nestjs/common';
 import { Response } from 'express';
 import path from 'path';
 import { UserService } from './user.service';
+import { UserInformation } from './user.model';
 
 @Controller('user')
 export class UserController {
@@ -34,7 +35,7 @@ export class UserController {
 
     // 모든 유저의 정보를 가져옴
     @Get()
-    getAllUser(){
+    getAllUser():UserInformation[]{
         return this.userService.getAllUserInfo();
     }
 }
