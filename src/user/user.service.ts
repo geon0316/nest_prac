@@ -29,7 +29,7 @@ export class UserService {
 
         // 만약 회원가입 Flag가 true라면 (회원정보 중복x)
         if (createFlag === true){
-            // 생성한 유저 정보를 저장
+            // 생성한 유저 정보를 저장  
             this.profileInfo.push(userInfo);
         
             // 생성한 유저 정보 리턴
@@ -37,6 +37,7 @@ export class UserService {
         }
 
         // 만약 회원가입 Flag가 false 라면 (회원정보 중복)
+        // 포스트맨에서 중복 처리가 된 경우를 확인하기 위함
         else{
             userInfo.id = "중복";
             // 생성한 유저 정보 리턴
