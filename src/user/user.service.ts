@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { UserInfo } from 'os';
 import { UserInformation } from './user.model';
+import {v1 as uuid} from 'uuid';
+import { createUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UserService {
@@ -13,12 +15,17 @@ export class UserService {
     }
 
     // 유저 정보 생성
-    public createUserInfo(userId:string, userPW:string){
+    public createUserInfo(createDto:createUserDto){
         const userInfo:UserInformation = {
-                id : userId,
-                pw : userPW
+                identif : uuid(),
+                id : createDto.userid,
+                pw : createDto.userpw
         }
 
+        // 생성한 유저 정보를 저장
         this.profileInfo.push(userInfo);
+        
+        // 생성한 유저 정보 리턴
+        return userInfo;
     }
 }
